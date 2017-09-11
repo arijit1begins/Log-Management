@@ -1,0 +1,10 @@
+<Config>
+  <LogDirectory>D:\logs</LogDirectory>
+  <ArchiveDirectory type="local">E:\archive</ArchiveDirectory>
+  <UnzipDays>15</UnzipDays>
+  <NonArchiveZipDays>60</NonArchiveZipDays>
+  <ArchiveZipDays>180</ArchiveZipDays>
+  <ZipType>Windows Compression</ZipType>
+  <DiskLimit unit="GB">10</DiskLimit>
+  <ScriptLogFilePath>D:\logs_logs.txt</ScriptLogFilePath>
+</Config>
