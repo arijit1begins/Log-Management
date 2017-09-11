@@ -43,12 +43,20 @@ foreach ($ziplog in $zipLogs)
 
 {
 
-    $origZipDir = $ziplog.DirectoryName             #gets the current folder name
-    $fileName = $ziplog.Name                        #gets the current zipped log name
-    $source = $origZipDir + '\' + $fileName         #builds the source data
-    $destination = $archDir + '\' + $fileName       #builds the destination data
+    $source = $ziplog.Directory.ToString() + '\' + $ziplog.Name.ToString()
+    $destination = $archDir + $ziplog.Directory.Name.ToString()
+    if(!(Test-Path -Path $destination)) {
+        New-Item -ItemType "Directory" -Path $destination
+    }
 
-    Move-Item -Path $source -Destination $destination   #moves the file from the current location to the archive location
+    Move-Item -Path $source -Destination $destination
+
+    #$origZipDir = $ziplog.DirectoryName             #gets the current folder name
+    #$fileName = $ziplog.Name                        #gets the current zipped log name
+    #$source = $origZipDir + '\' + $fileName         #builds the source data
+    #$destination = $archDir + '\' + $fileName       #builds the destination data
+
+    #Move-Item -Path $source -Destination $destination   #moves the file from the current location to the archive location
 
     $logtime = Get-Date
     $logtime.ToString() + ': Moved archive ' + $source + ' to ' + $destination | Out-File $Script_Logfile -Encoding UTF8 -Append #creates logfile entry
