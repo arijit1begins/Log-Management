@@ -1,7 +1,7 @@
 <DeployConfig sourcecodepath = "C:\Users\ad949\Work Folders\Desktop\LogManagementPackage" DeployLogs ="C:\Users\ad949\Work Folders\Desktop\Deploy\deploy_log.txt">
   <Webboxes>
     <Webbox>
-      <Name>CO1EMSWB10.PARTNERS.EXTRANET.MICROSOFT.COM</Name>
+      <Name></Name>
       <Destination foldername ="LogManagementPackage">e$</Destination>
     </Webbox>
   </Webboxes>
