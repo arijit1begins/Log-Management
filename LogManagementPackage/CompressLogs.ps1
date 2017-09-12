@@ -3,7 +3,7 @@
 $logdir = $config.Config.LogDirectory
 $Script_Logfile = $config.Config.ScriptLogFilePath
 $days = $config.Config.UnzipDays 
-$logs = Get-ChildItem -Recurse -Path $logdir -Attributes !Directory -Filter *.log | Where-Object -FilterScript { $_.LastWriteTime -lt (Get-Date).SubtractDays($days) } #gets the zipped logs
+$logs = Get-ChildItem -Recurse -Path $logdir -Attributes !Directory -Filter *.log | Where-Object -FilterScript { $_.LastWriteTime.AddDays($days) -lt (Get-Date) } #gets the zipped logs
 
 foreach ($log in $logs)
 

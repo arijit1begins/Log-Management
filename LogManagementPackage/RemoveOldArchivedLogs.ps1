@@ -6,7 +6,7 @@ $logfile = $config.Config.ScriptLogFilePath
 
 #List of files to be deleted
 $filelist = Get-ChildItem -Recurse -Path $archiveDir -Attributes !Directory -Filter *.zip  | Where-Object -FilterScript {
-            $_.LastWriteTime -lt (Get-Date).SubtractDays($archiveDays) }
+            $_.LastWriteTime.AddDays($removeArchiveDays) -lt (Get-Date) }
 #echo "hello"
 
 foreach($file in $filelist) {

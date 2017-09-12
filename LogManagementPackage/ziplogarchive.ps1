@@ -32,7 +32,7 @@ if($checkDiskFlag) {  
 
 $zipLogs = Get-ChildItem -Recurse -Path $logdir -Attributes !Directory -Filter *.zip  | Where-Object -FilterScript {
 
-$_.LastWriteTime -lt (Get-Date).SubtractDays($archiveDays)
+$_.LastWriteTime.AddDays($archiveDays) -lt (Get-Date)
 
 } #gets the zipped logs
 
