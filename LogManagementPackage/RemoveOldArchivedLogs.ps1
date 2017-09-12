@@ -1,6 +1,6 @@
 ﻿$PSScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 [xml]$config = Get-Content $PSScriptRoot\Configuration.xml 
-$archiveDir = $config.Config.ArchiveDirectory
+$archiveDir = $config.Config.ArchiveDirectory.'#text'
 $removeArchiveDays = $config.Config.ArchiveZipDays
 $logfile = $config.Config.ScriptLogFilePath
 
