@@ -18,6 +18,9 @@ foreach ($log in $logs)
     
     try{
         Compress-Archive -LiteralPath $source -DestinationPath $destination
+
+        $item = Get-Item -Path $destination
+        $item.LastWriteTime = $LastWriteTime
         
         Remove-Item -Path $directory\$name #deletes the original log file
         
